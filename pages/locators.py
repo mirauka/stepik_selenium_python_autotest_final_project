@@ -16,3 +16,13 @@ class LoginPageLocators():
     # PASSWORD_REGISTER_TEXTFIELD = (By.CSS_SELECTOR, "#id_registration-password1")
     # CONFIRM_PASSWORD_REGISTER_TEXTFIELD = (By.CSS_SELECTOR, "#id_registration-password2")
     # REGISTER_BUTTON = (By.CSS_SELECTOR, "#register_form .btn-lg")
+
+
+class ProductPageLocators():
+    ADD_TO_BASKET_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-basket")
+    SUCCESS_MESSAGE_BOOK_NAME = (By.CSS_SELECTOR, ".alert-success strong")
+    SUCCESS_MESSAGE_BOOK_PRICE = (By.CSS_SELECTOR, ".alert-info strong")
+    BOOK_NAME = (By.CSS_SELECTOR, ".product_main h1")
+    BOOK_PRICE = (By.CSS_SELECTOR, ".product_main .price_color")
+
+
