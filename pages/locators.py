@@ -22,8 +22,8 @@ class LoginPageLocators:
 
 class ProductPageLocators:
     ADD_TO_BASKET_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-basket")
-    SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".alert-success .alertinner")
-    SUCCESS_MESSAGE_BOOK_NAME = (By.CSS_SELECTOR, ".alert-success strong")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".alert-success:nth-child(1) .alertinner")
+    SUCCESS_MESSAGE_BOOK_NAME = (By.CSS_SELECTOR, ".alert-success:nth-child(1) strong")
     SUCCESS_MESSAGE_BOOK_PRICE = (By.CSS_SELECTOR, ".alert-info strong")
     BOOK_NAME = (By.CSS_SELECTOR, ".product_main h1")
     BOOK_PRICE = (By.CSS_SELECTOR, ".product_main .price_color")
