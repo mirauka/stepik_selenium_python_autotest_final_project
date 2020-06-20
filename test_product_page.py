@@ -3,7 +3,6 @@ from .pages.product_page import ProductPage
 from .pages.basket_page import BasketPage
 from .pages.login_page import LoginPage
 from .pages.main_page import MainPage
-from .pages.base_page import BasePage
 import time
 
 
@@ -24,14 +23,16 @@ class TestUserAddToBasketFromProductPage:
         product_page = ProductPage(browser, link)
         product_page.open()
         product_page.should_not_be_success_message()
-
+#
     @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
         link = ("http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/")
         product_page = ProductPage(browser, link)
         product_page.open()
         product_page.add_to_basket()
-        product_page.should_be_success_message()
+        book_name = product_page.return_book_name()
+        book_price = product_page.return_book_price()
+        product_page.should_be_success_message(book_name, book_price)
 
 
 def test_guest_cant_see_success_message(browser):
@@ -56,7 +57,9 @@ def test_guest_can_add_product_to_basket(browser, link):
     product_page.open()
     product_page.add_to_basket()
     product_page.solve_quiz_and_get_code()
-    product_page.should_be_success_message()
+    book_name = product_page.return_book_name()
+    book_price = product_page.return_book_price()
+    product_page.should_be_success_message(book_name, book_price)
 
 
 @pytest.mark.xfail
