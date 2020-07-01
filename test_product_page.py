@@ -1,9 +1,11 @@
+import time
+
 import pytest
+
 from .pages.product_page import ProductPage
 from .pages.basket_page import BasketPage
 from .pages.login_page import LoginPage
 from .pages.main_page import MainPage
-import time
 
 
 class TestUserAddToBasketFromProductPage:
@@ -18,12 +20,6 @@ class TestUserAddToBasketFromProductPage:
         main_page = MainPage(browser, browser.current_url)
         main_page.should_be_authorized_user()
 
-    def test_user_cant_see_success_message(self, browser):
-        link = ("http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/")
-        product_page = ProductPage(browser, link)
-        product_page.open()
-        product_page.should_not_be_success_message()
-
     @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
         link = ("http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/")
@@ -34,12 +30,19 @@ class TestUserAddToBasketFromProductPage:
         book_price = product_page.return_book_price()
         product_page.should_be_success_message(book_name, book_price)
 
+    def test_user_cant_see_success_message(self, browser):
+        link = ("http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/")
+        product_page = ProductPage(browser, link)
+        product_page.open()
+        product_page.should_not_be_success_message()
+
 
 def test_guest_cant_see_success_message(browser):
     link = ("http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/")
     product_page = ProductPage(browser, link)
     product_page.open()
     product_page.should_not_be_success_message()
+
 
 @pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1",
