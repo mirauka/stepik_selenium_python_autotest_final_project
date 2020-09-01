@@ -1,4 +1,4 @@
-# stepik_selenium_python_avtotest_final_project
+# stepik_selenium_python_autotest_final_project
 Final project for selenium-python autotest course: https://stepik.org/lesson/201964/step/15?unit=176022
 
 # Environment setup
